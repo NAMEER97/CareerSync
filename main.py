@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
@@ -154,3 +155,7 @@ def profile_setup():
         "recommendations": results,
         "partialMatches": partial_results  
     })
+
+@app.route('/')
+def home():
+    return open(os.path.join(script_dir, 'index.html')).read()
